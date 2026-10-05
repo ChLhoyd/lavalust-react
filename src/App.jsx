@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const API_URL = "https://altamia-christannlhoyd-new.onrender.com";
+const API_URL = "https://lavalust-react.onrender.com";
 
 function App() {
   const [token, setToken] = useState(
