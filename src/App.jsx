@@ -9,6 +9,11 @@ import FaceEnrollment from "./FaceEnrollment";
 import ChatbotWidget from "./ChatbotWidget";
 import { apiRequest as publicApiRequest } from "./rfidApi";
 
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://altamia-christannlhoyd-new.onrender.com"
+).replace(/\/+$/, "");
+
 async function parseApiResponse(response) {
   const raw = await response.text();
   let data = {};
@@ -44,9 +49,11 @@ async function sendApiRequest(path, options = {}) {
     headers.Authorization = `Bearer ${accessToken}`;
   }
 
-  return fetch(path, {
-    credentials: "same-origin",
+  const url = `${API_BASE_URL}${path.startsWith("/") ? path : `/${path}`}`;
+
+  return fetch(url, {
     ...options,
+    credentials: "omit",
     headers,
   });
 }
@@ -62,7 +69,7 @@ async function apiRequest(path, options = {}) {
 
   if (canRefresh) {
     try {
-      const refreshResponse = await fetch("/api/refresh", {
+      const refreshResponse = await fetch(`${API_BASE_URL}/api/refresh`, {
         method: "POST",
         headers: {
           Accept: "application/json",
