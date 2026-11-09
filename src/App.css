@@ -1,218 +1,981 @@
+
 * {
   box-sizing: border-box;
 }
 
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #f5f7ff;
+  background: #101827;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  color: #222;
-}
-
-/* LOGIN */
-
-.login-page {
+  min-width: 320px;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.login-box {
-  width: 400px;
-  background: white;
-  padding: 35px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+button,
+input {
+  font: inherit;
 }
 
-.login-box h1 {
-  margin-top: 0;
-  text-align: center;
-}
-
-.subtitle {
-  text-align: center;
-  color: #666;
-  margin-bottom: 25px;
-}
-
-.login-box label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-box button {
-  width: 100%;
-  margin-top: 25px;
-  padding: 12px;
-  background: #222;
-  color: white;
-  border: none;
-  border-radius: 5px;
+button {
   cursor: pointer;
 }
 
-.login-box button:hover {
-  background: #444;
-}
-
-/* MAIN */
-
-.app {
+.login-page {
+  --panel: #1c293d;
+  --text: #f6f8ff;
+  --muted: #b7c6e4;
+  --border: #34445e;
   min-height: 100vh;
-}
-
-.header {
-  background: #222;
-  color: white;
-  padding: 20px 40px;
+  padding: 32px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  background: #101827;
+  color: var(--text);
 }
 
-.header h1 {
+.login-card {
+  width: min(100%, 826px);
+  min-height: 554px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #34445d;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
+}
+
+.login-form-panel {
+  padding: 34px 41px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 13px;
+}
+
+.mode-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 39px;
+  height: 39px;
+  border-radius: 11px;
+  background: #4e6df4;
+  color: white;
+  font-size: 23px;
+  font-weight: 700;
+  box-shadow: 0 5px 15px #4e6df433;
+}
+
+.brand b {
+  display: block;
+  font-size: 13px;
+  letter-spacing: -0.15px;
+}
+
+.brand small {
+  display: block;
+  color: #9db8ff;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.welcome {
+  margin: 38px 0 26px;
+}
+
+.welcome h1 {
+  margin: 0 0 10px;
+  font-size: 25px;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.welcome p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin: 0 0 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.login-form input {
+  height: 44px;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  padding: 0 12px;
+  font-size: 12px;
+  margin-bottom: 19px;
+}
+
+.login-form input::placeholder {
+  color: #a5b9d8;
+  opacity: 1;
+}
+
+.login-form input:focus {
+  border-color: #6683ff;
+  box-shadow: 0 0 0 3px #4f70f51c;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 55px;
+}
+
+.show-password {
+  position: absolute;
+  right: 11px;
+  top: 0;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  color: #6686ff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sign-in-button {
+  height: 43px;
+  border: 0;
+  border-radius: 9px;
+  color: white;
+  background: #4f70f5;
+  font-weight: 700;
+  font-size: 12px;
+  margin-top: 1px;
+  box-shadow: 0 7px 15px #4f70f51c;
+}
+
+.sign-in-button:hover {
+  background: #6380ff;
+}
+
+.sign-in-button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.login-error {
+  color: #ffb4b4;
+  font-size: 12px;
+  margin: -7px 0 12px;
+  line-height: 1.45;
+}
+
+.login-footer {
+  margin-top: auto;
+  padding-top: 24px;
+  text-align: center;
+  color: #9db0d0;
+  font-size: 10px;
+}
+
+.login-visual-panel {
+  min-height: 554px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 38px 30px 29px;
+  background:
+    radial-gradient(ellipse at 80% 0%, #2b3e70 0%, transparent 45%),
+    linear-gradient(145deg, #243452, #1e2b42);
+}
+
+.visual-orbit {
+  position: absolute;
+  border: 1px solid rgba(155, 177, 255, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.orbit-one {
+  width: 280px;
+  height: 280px;
+  top: -100px;
+  right: -82px;
+}
+
+.orbit-two {
+  width: 220px;
+  height: 220px;
+  bottom: -135px;
+  left: -75px;
+}
+
+.attendance-illustration {
+  position: relative;
+  z-index: 1;
+  width: 270px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 0 13px;
+}
+
+.visual-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 280px;
+}
+
+.visual-copy h2 {
+  font-size: 18px;
+  margin: 0 0 13px;
+  letter-spacing: -0.35px;
+}
+
+.visual-copy p {
+  color: #c3d1f0;
+  font-size: 12px;
+  line-height: 1.8;
   margin: 0;
 }
 
-.header p {
-  margin-bottom: 0;
+.feature-pill {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  border: 1px solid #3b4b65;
+  background: #1b293e;
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.feature-pill span {
+  width: 6px;
+  height: 6px;
+  background: #2dc68a;
+  border-radius: 50%;
+}
+
+/* Light mode */
+.login-page.light {
+  --panel: #fff;
+  --text: #17243a;
+  --muted: #61718a;
+  --border: #d8dfec;
+  background: #eef2fa;
+}
+
+.light .login-card {
+  border-color: #d6deed;
+  box-shadow: 0 22px 60px #14244818;
+}
+
+.light .login-visual-panel {
+  background:
+    radial-gradient(ellipse at 80% 0%, #cbd8ff 0%, transparent 45%),
+    linear-gradient(145deg, #e4ebff, #d5e0f8);
+}
+
+.light .visual-copy p {
+  color: #465a7c;
+}
+
+.light .feature-pill {
+  background: #fff;
+  border-color: #d4ddef;
+  color: #283957;
+}
+
+.light .login-form input {
+  background: #fff;
+}
+
+/* Dashboard screen */
+.dashboard-page {
+  min-height: 100vh;
+  background: #101827;
+  color: #f5f7ff;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px clamp(20px, 5vw, 70px);
+  border-bottom: 1px solid #29364b;
+  background: #1c293d;
+}
+
+.dashboard-header .brand {
+  margin-right: auto;
 }
 
 .logout-button {
-  background: white;
-  color: #222;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* CONTENT */
-
-main {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.form-section,
-.products-section {
-  background: white;
-  padding: 25px;
-  margin-bottom: 25px;
+  padding: 9px 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #40516b;
+  background: #273750;
+  color: #fff;
+  font-weight: 650;
+  font-size: 12px;
 }
 
-.form-section h2,
-.products-section h2 {
-  margin-top: 0;
+.dashboard-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 55px 25px;
 }
 
-/* FORM */
-
-.form-section input,
-.form-section textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
+.eyebrow {
+  color: #8fa7ff;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 1.5px;
 }
 
-.form-section textarea {
-  min-height: 100px;
-  resize: vertical;
+.dashboard-content h1 {
+  font-size: 32px;
+  margin: 12px 0 8px;
 }
 
-.form-buttons {
+.dashboard-content > p {
+  color: #aebdd7;
+}
+
+.dashboard-card {
+  margin-top: 30px;
+  padding: 25px;
   display: flex;
-  gap: 10px;
+  gap: 17px;
+  align-items: flex-start;
+  border: 1px solid #34445e;
+  border-radius: 14px;
+  background: #1c293d;
 }
 
-.form-buttons button {
-  padding: 10px 18px;
-  border: none;
-  border-radius: 5px;
-  background: #222;
-  color: white;
-  cursor: pointer;
+.dashboard-card-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 11px;
+  background: #4f70f5;
+  font-size: 22px;
 }
 
-.cancel-button {
-  background: #777 !important;
+.dashboard-card h2 {
+  margin: 2px 0 8px;
+  font-size: 18px;
 }
 
-/* TABLE */
-
-.table-container {
-  overflow-x: auto;
+.dashboard-card p,
+.dashboard-note {
+  color: #aebdd7;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.dashboard-note {
+  margin-top: 18px;
 }
 
-th,
-td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+/* Dashboard light mode */
+.dashboard-page.light {
+  background: #eef2fa;
+  color: #17243a;
 }
 
-th {
-  background: #222;
-  color: white;
+.dashboard-page.light .dashboard-header,
+.dashboard-page.light .dashboard-card {
+  background: #fff;
+  border-color: #d8dfec;
 }
 
-.edit-button,
-.delete-button {
-  padding: 7px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 5px;
+.dashboard-page.light .logout-button {
+  background: #f4f6fb;
+  color: #17243a;
+  border-color: #d8dfec;
 }
 
-.edit-button {
-  background: #ddd;
-  color: #222;
+.dashboard-page.light .dashboard-content > p,
+.dashboard-page.light .dashboard-card p,
+.dashboard-page.light .dashboard-note {
+  color: #61718a;
 }
 
-.delete-button {
-  background: #222;
-  color: white;
+/* Mobile layout */
+@media (max-width: 700px) {
+  .login-page {
+    padding: 18px;
+    align-items: flex-start;
+  }
+
+  .login-card {
+    grid-template-columns: 1fr;
+    max-width: 430px;
+  }
+
+  .login-form-panel {
+    padding: 25px 25px 22px;
+  }
+
+  .welcome {
+    margin: 28px 0 22px;
+  }
+
+  .login-visual-panel {
+    min-height: 350px;
+    padding: 20px 24px 25px;
+  }
+
+  .attendance-illustration {
+    width: 190px;
+    margin-bottom: 0;
+  }
+
+  .visual-copy h2 {
+    font-size: 17px;
+  }
+
+  .dashboard-header {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-header .brand {
+    flex: 1 0 100%;
+  }
 }
 
-/* MESSAGES */
+@media (max-height: 650px) and (min-width: 701px) {
+  .login-page {
+    padding: 15px;
+  }
 
-.error,
-.error-box {
-  color: #b00020;
+  .login-card {
+    min-height: 500px;
+  }
+
+  .login-form-panel {
+    padding-top: 20px;
+    padding-bottom: 18px;
+  }
+
+  .welcome {
+    margin: 22px 0 17px;
+  }
+
+  .login-form input {
+    margin-bottom: 13px;
+  }
+
+  .login-visual-panel {
+    min-height: 500px;
+  }
+
+  .attendance-illustration {
+    width: 225px;
+  }
 }
 
-.success,
-.success-box {
-  color: #087f23;
+
+.rfid-kiosk-page {
+    min-height: 100vh;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 15% 10%, #dbeafe 0, transparent 34%), linear-gradient(135deg, #f8fafc, #eaf0fb);
+    color: #10213d;
 }
 
-.error-box,
-.success-box {
-  background: white;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+.rfid-kiosk-top {
+    width: min(100%, 1000px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
 }
+
+.rfid-kiosk-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rfid-kiosk-brand > span {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: #3158e8;
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.rfid-kiosk-brand strong,
+.rfid-kiosk-brand small {
+    display: block;
+}
+
+.rfid-kiosk-brand small,
+.rfid-kiosk-clock small {
+    color: #64748b;
+    font-size: 11px;
+}
+
+.rfid-kiosk-clock {
+    text-align: right;
+}
+
+.rfid-kiosk-clock strong {
+    display: block;
+    font-size: 21px;
+}
+
+.rfid-kiosk-card {
+    width: min(100%, 720px);
+    padding: clamp(24px, 5vw, 52px);
+    border: 1px solid #dce5f2;
+    border-radius: 26px;
+    background: #fff;
+    box-shadow: 0 24px 70px #17335b18;
+    text-align: center;
+}
+
+.rfid-kiosk-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 22px;
+    background: #edf2ff;
+    color: #3158e8;
+    font-size: 42px;
+}
+
+.rfid-kiosk-eyebrow {
+    margin: 0;
+    color: #3158e8;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.rfid-kiosk-card h1 {
+    margin: 10px 0;
+    font-size: clamp(25px, 4vw, 38px);
+    line-height: 1.15;
+}
+
+.rfid-kiosk-subtitle {
+    max-width: 540px;
+    margin: 0 auto;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.rfid-kiosk-schedule {
+    margin: 26px 0 20px;
+    padding: 17px;
+    border: 1px solid #dbe5f3;
+    border-radius: 16px;
+    background: #f8faff;
+}
+
+.rfid-kiosk-schedule small,
+.rfid-kiosk-schedule strong,
+.rfid-kiosk-schedule span {
+    display: block;
+}
+
+.rfid-kiosk-schedule small {
+    color: #64748b;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.rfid-kiosk-schedule strong {
+    margin: 6px 0;
+    font-size: 20px;
+}
+
+.rfid-kiosk-schedule span {
+    color: #64748b;
+    font-size: 13px;
+}
+
+.rfid-kiosk-no-class {
+    color: #b45309 !important;
+    font-size: 16px !important;
+}
+
+.rfid-kiosk-scan-form {
+    display: grid;
+    gap: 10px;
+    text-align: left;
+}
+
+.rfid-kiosk-scan-form label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #475569;
+}
+
+.rfid-kiosk-scan-form input {
+    width: 100%;
+    height: 58px;
+    border: 2px solid #d9e2f0;
+    border-radius: 13px;
+    padding: 0 16px;
+    font-size: 17px;
+    outline: none;
+}
+
+.rfid-kiosk-scan-form input:focus {
+    border-color: #3158e8;
+    box-shadow: 0 0 0 4px #3158e81a;
+}
+
+.rfid-kiosk-scan-form button {
+    height: 52px;
+    border: 0;
+    border-radius: 12px;
+    background: #3158e8;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.rfid-kiosk-scan-form button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.rfid-kiosk-feedback {
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 14px;
+    text-align: left;
+}
+
+.rfid-kiosk-feedback.error {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+}
+
+.rfid-kiosk-feedback.success {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.rfid-kiosk-feedback strong,
+.rfid-kiosk-feedback span {
+    display: block;
+}
+
+.rfid-kiosk-feedback strong {
+    font-size: 22px;
+}
+
+.rfid-kiosk-feedback p {
+    margin: 7px 0;
+}
+
+.rfid-kiosk-feedback small {
+    opacity: 0.8;
+}
+
+.rfid-kiosk-footnote {
+    margin: 20px 0 0;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+.rfid-kiosk-footer {
+    margin-top: 20px;
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+@media (max-width: 540px) {
+    .rfid-kiosk-top {
+        align-items: flex-start;
+    }
+
+    .rfid-kiosk-clock strong {
+        font-size: 16px;
+    }
+
+    .rfid-kiosk-card {
+        padding: 24px 18px;
+    }
+}
+
+/* ===== Classroom kiosk: phases, room picker, diagnostics ===== */
+.rfid-kiosk-schedule { position: relative; }
+
+.rfid-phase-pill {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-style: normal;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.rfid-phase-pill-present { background: #dcfce7; color: #166534; }
+.rfid-phase-pill-late { background: #fef3c7; color: #92400e; }
+.rfid-phase-pill-absent { background: #fee2e2; color: #991b1b; }
+.rfid-phase-pill-closed { background: #e2e8f0; color: #475569; }
+
+.rfid-kiosk-schedule.rfid-phase-present { border-color: #86efac; background: #f0fdf4; }
+.rfid-kiosk-schedule.rfid-phase-late { border-color: #fcd34d; background: #fffbeb; }
+.rfid-kiosk-schedule.rfid-phase-absent { border-color: #fca5a5; background: #fef2f2; }
+
+.rfid-kiosk-schedule .rfid-phase-note {
+    margin: 8px 0 0;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.rfid-kiosk-feedback.late {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.rfid-kiosk-feedback.absent {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.rfid-room-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.rfid-room-button {
+    padding: 16px 10px;
+    border: 2px solid #d9e2f0;
+    border-radius: 14px;
+    background: #fff;
+    color: #10213d;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.rfid-room-button:hover {
+    border-color: #3158e8;
+    background: #edf2ff;
+}
+
+.rfid-diagnostics {
+    margin: 14px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    text-align: left;
+}
+
+.rfid-diagnostics li {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.rfid-diagnostics b,
+.rfid-diagnostics span,
+.rfid-diagnostics em {
+    display: block;
+}
+
+.rfid-diagnostics em {
+    margin-top: 2px;
+    color: #b45309;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.rfid-schedule-error {
+    color: #be123c !important;
+    font-weight: 700;
+}
+
+.rfid-change-room {
+    margin-top: 12px;
+    padding: 6px 12px;
+    border: 1px solid #d9e2f0;
+    border-radius: 999px;
+    background: #fff;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Login page: attendance is open */
+.attendance-open-banner {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    z-index: 9999;
+    display: grid;
+    gap: 6px;
+    width: min(560px, calc(100% - 28px));
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: #166534;
+    color: #fff;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.attendance-open-banner strong { font-size: 16px; }
+.attendance-open-banner span { font-size: 13px; opacity: 0.9; }
+
+.attendance-open-banner div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.attendance-open-banner a {
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: #fff;
+    color: #166534;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* ===== Face camera (kiosk + enrollment) ===== */
+.face-camera {
+    position: relative;
+    width: min(520px, 100%);
+    aspect-ratio: 4 / 3;
+    margin: 20px auto 8px;
+    overflow: hidden;
+    border: 3px solid #d9e2f0;
+    border-radius: 22px;
+    background: #0b1226;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+.face-camera-ready { border-color: #86efac; }
+.face-camera-error { border-color: #fca5a5; }
+
+.face-camera video,
+.face-camera canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* mirror, like a selfie camera */
+}
+
+.face-camera-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(11, 18, 38, 0.82);
+    color: #e2e8f0;
+    font-weight: 700;
+    text-align: center;
+}
+
+.face-camera-overlay.face-camera-error { color: #fecaca; }
+
+.face-hint {
+    margin: 8px 0 0;
+    color: #334155;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.face-progress {
+    width: min(520px, 100%);
+    height: 8px;
+    margin: 12px auto 0;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e2e8f0;
+}
+
+.face-progress span {
+    display: block;
+    height: 100%;
+    background: #22c55e;
+    transition: width 0.3s ease;
+}
+
+.face-enroll-modal { width: min(620px, 100%); }
