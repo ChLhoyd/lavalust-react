@@ -2616,3 +2616,380 @@
 }
 
 .chatbot-form button:disabled { opacity: 0.5; cursor: default; }
+
+
+/* =========================================================
+   UI POLISH - preserves the existing blue / green / status palette
+   ========================================================= */
+.portal-app {
+  transition: background-color .22s ease, color .22s ease;
+  color-scheme: light;
+}
+
+.portal-app.theme-dark {
+  color-scheme: dark;
+}
+
+.portal-app .sidebar {
+  z-index: 5;
+  box-shadow: 8px 0 28px rgba(20, 36, 72, .035);
+}
+
+.portal-app.theme-dark .sidebar {
+  box-shadow: 8px 0 28px rgba(0, 0, 0, .12);
+}
+
+.portal-app .profile {
+  padding-bottom: 20px;
+}
+
+.portal-app .avatar,
+.portal-app .settings-avatar {
+  border-radius: 15px;
+}
+
+.portal-app .nav {
+  gap: 6px;
+}
+
+.portal-app .nav-item {
+  min-height: 43px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.portal-app .nav-item:hover {
+  transform: translateX(2px);
+}
+
+.portal-app .nav-item.active {
+  border-color: color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.portal-app .main {
+  padding-top: 28px;
+}
+
+.portal-app .portal-main-top {
+  margin-bottom: 23px;
+}
+
+.portal-app .portal-page-title {
+  font-size: clamp(1.45rem, 2vw, 1.75rem);
+  font-weight: 750;
+  letter-spacing: -.6px;
+}
+
+.portal-app .page-eyebrow {
+  letter-spacing: 1.25px;
+}
+
+.portal-app .portal-date-pill,
+.portal-app .date-chip {
+  min-height: 36px;
+}
+
+.portal-app .mode-button {
+  min-height: 36px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: border-color .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+.portal-app .mode-button:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  transform: translateY(-1px);
+}
+
+.portal-app .panel,
+.portal-app .stat,
+.portal-app .data-panel,
+.portal-app .settings-panel,
+.portal-app .profile-settings-panel,
+.portal-app .account-manager-panel,
+.portal-app .admin-section-panel,
+.portal-app .student-home-panel {
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(23, 40, 76, .035);
+  transition: background-color .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.portal-app.theme-dark .panel,
+.portal-app.theme-dark .stat,
+.portal-app.theme-dark .data-panel,
+.portal-app.theme-dark .settings-panel,
+.portal-app.theme-dark .profile-settings-panel,
+.portal-app.theme-dark .account-manager-panel,
+.portal-app.theme-dark .admin-section-panel,
+.portal-app.theme-dark .student-home-panel {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .11);
+}
+
+.portal-app .stat {
+  border-radius: 14px;
+}
+
+.portal-app .panel {
+  padding: 22px;
+}
+
+.portal-app .panel h2,
+.portal-app .page-title {
+  letter-spacing: -.25px;
+}
+
+.portal-app .table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.portal-app table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.portal-app th {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.portal-app tbody tr {
+  transition: background-color .15s ease;
+}
+
+.portal-app tbody tr:hover td {
+  background: var(--surface-alt);
+}
+
+.portal-app td,
+.portal-app th {
+  transition: background-color .15s ease, border-color .15s ease;
+}
+
+.portal-app input,
+.portal-app select,
+.portal-app textarea {
+  border-radius: 10px;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.portal-app input:focus,
+.portal-app select:focus,
+.portal-app textarea:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
+}
+
+.portal-app input::placeholder,
+.portal-app textarea::placeholder {
+  color: var(--muted);
+  opacity: .78;
+}
+
+.portal-app button {
+  transition: filter .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+
+.portal-app button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.portal-app .refresh-button:hover,
+.portal-app .btn-outline:hover,
+.portal-app .text-action:hover {
+  filter: brightness(.97);
+}
+
+.portal-app .class-card,
+.portal-app .class-strip-card,
+.portal-app .timetable-slot,
+.portal-app .schedule-item,
+.portal-app .absence-request-item,
+.portal-app .data-panel {
+  border-radius: 13px;
+}
+
+.portal-app .class-card,
+.portal-app .class-strip-card,
+.portal-app .schedule-item,
+.portal-app .absence-request-item {
+  transition: border-color .18s ease, background-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.portal-app .class-card:hover,
+.portal-app .schedule-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(23, 40, 76, .07);
+}
+
+.portal-app.theme-dark .class-card:hover,
+.portal-app.theme-dark .schedule-item:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+}
+
+.portal-app .portal-modal {
+  border-radius: 17px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .2);
+}
+
+.portal-app .portal-search-wrap {
+  max-width: 680px;
+  min-height: 46px;
+  border-radius: 12px;
+  margin-bottom: 22px;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.portal-app .portal-search-wrap:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 13%, transparent);
+}
+
+.portal-app .portal-search-wrap input {
+  box-shadow: none;
+}
+
+.portal-app .empty-state {
+  min-height: 190px;
+}
+
+.portal-app .portal-footer {
+  padding-bottom: 10px;
+}
+
+.portal-app :focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--primary) 42%, transparent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+  .portal-app {
+    grid-template-columns: 235px minmax(0, 1fr);
+  }
+
+  .portal-app .main {
+    padding: 22px 22px 34px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portal-app {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-app .sidebar {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 5px 18px rgba(20, 36, 72, .04);
+  }
+
+  .portal-app .profile {
+    padding: 2px 5px 12px;
+    margin-bottom: 10px;
+  }
+
+  .portal-app .nav {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px 0 8px;
+    scrollbar-width: thin;
+  }
+
+  .portal-app .nav-item {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 40px;
+    padding: 9px 12px;
+    white-space: nowrap;
+  }
+
+  .portal-app .sidebar-role-label {
+    padding: 0 5px 8px;
+  }
+
+  .portal-app .bottom {
+    display: flex;
+    gap: 6px;
+    padding-top: 9px;
+  }
+
+  .portal-app .bottom .nav-item {
+    flex: 1;
+  }
+
+  .portal-app .main {
+    padding: 20px 16px 30px;
+  }
+
+  .portal-app .portal-main-top {
+    align-items: flex-start;
+  }
+
+  .portal-app .portal-top-actions {
+    gap: 7px;
+  }
+
+  .portal-app .teacher-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-app .stats-column {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .portal-app .stats-column .stat {
+    min-height: 112px;
+    padding: 13px;
+  }
+
+  .portal-app .stats-column .stat .value {
+    font-size: 1.55rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .portal-app .portal-main-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .portal-app .portal-top-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .portal-app .stats-column,
+  .portal-app .student-stat-grid,
+  .portal-app .student-attendance-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-app .main {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .portal-app .panel {
+    padding: 16px;
+  }
+
+  .portal-app .profile-settings-grid,
+  .portal-app .account-create-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-app .page-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

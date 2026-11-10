@@ -979,3 +979,99 @@ button {
 }
 
 .face-enroll-modal { width: min(620px, 100%); }
+
+
+/* =========================================================
+   LOGIN UI POLISH - keeps the original navy / blue palette
+   ========================================================= */
+.login-page {
+  transition: background .22s ease, color .22s ease;
+}
+
+.login-card {
+  border-radius: 22px;
+  box-shadow: 0 26px 72px rgba(0, 0, 0, .22);
+  transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+
+.login-form-panel {
+  padding: 38px 43px 30px;
+}
+
+.login-page .mode-button {
+  border-radius: 999px;
+  padding: 9px 14px;
+  transition: background-color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.login-page .mode-button:hover {
+  border-color: #4e6df4;
+  transform: translateY(-1px);
+}
+
+.login-form input {
+  min-height: 47px;
+  border-radius: 10px;
+  transition: border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: #4e6df4;
+  box-shadow: 0 0 0 3px rgba(78, 109, 244, .18);
+}
+
+.login-form button[type="submit"] {
+  min-height: 47px;
+  border-radius: 10px;
+  transition: filter .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.login-form button[type="submit"]:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(78, 109, 244, .2);
+}
+
+.login-visual-panel {
+  position: relative;
+  isolation: isolate;
+}
+
+.login-visual-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(160deg, rgba(78, 109, 244, .08), transparent 58%);
+}
+
+.login-page.light .login-card {
+  box-shadow: 0 24px 65px rgba(20, 36, 72, .12);
+}
+
+.login-page.light .login-form input {
+  border-color: #d8dfec;
+  color: #17243a;
+}
+
+.login-page.light .login-form input:focus {
+  border-color: #4e6df4;
+  box-shadow: 0 0 0 3px rgba(78, 109, 244, .14);
+}
+
+.login-page :focus-visible {
+  outline: 3px solid rgba(78, 109, 244, .42);
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .login-form-panel {
+    padding: 25px 25px 24px;
+  }
+
+  .login-card {
+    border-radius: 18px;
+  }
+}

@@ -349,12 +349,26 @@ function AuthenticatedApp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [loginThemeLight, setLoginThemeLight] = useState(false);
-  const [portalTheme, setPortalTheme] = useState("light");
+  const [loginThemeLight, setLoginThemeLight] = useState(
+    () => localStorage.getItem("school_login_theme") === "light"
+  );
+  const [portalTheme, setPortalTheme] = useState(
+    () => localStorage.getItem("school_portal_theme") || "light"
+  );
   const [loading, setLoading] = useState(false);
   const [checkingSession, setCheckingSession] = useState(true);
   const [error, setError] = useState("");
   const [user, setUser] = useState(null);
+
+  // Keep the selected appearance when the page is refreshed or reopened.
+  useEffect(() => {
+    localStorage.setItem("school_login_theme", loginThemeLight ? "light" : "dark");
+  }, [loginThemeLight]);
+
+  useEffect(() => {
+    localStorage.setItem("school_portal_theme", portalTheme);
+  }, [portalTheme]);
+
   const STUDENT_NAV = [
   { id: "home", label: "Home", icon: "home" },
   { id: "subjects", label: "Subjects", icon: "subjects" },
