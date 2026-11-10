@@ -369,3 +369,22 @@
     display: none;
   }
 }
+/* Calendar visual refinement — preserves calendar behavior and data flow. */
+.portal-app .student-calendar-layout { gap: 22px; }
+.portal-app .student-calendar-panel,
+.portal-app .student-calendar-side { border-radius: 16px; }
+.portal-app .calendar-toolbar-actions button { border-radius: 10px; }
+.portal-app .calendar-day {
+  border-radius: 11px;
+  border-color: var(--line);
+  box-shadow: 0 2px 8px rgba(35,39,75,.025);
+}
+.portal-app .calendar-day:hover {
+  border-color: var(--brand);
+  box-shadow: 0 5px 15px color-mix(in srgb, var(--brand) 13%, transparent);
+}
+.portal-app .calendar-day.selected,
+.portal-app .calendar-day.is-selected {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+}

@@ -1053,3 +1053,25 @@ button {
   .visual-copy h2 { font-size: 17px; }
   .visual-copy p { font-size: 11px; }
 }
+
+/* Login and standalone access screens — visual-only refresh */
+.login-page {
+  background: radial-gradient(ellipse at 15% 12%, rgba(133,119,255,.20), transparent 34%),
+              radial-gradient(ellipse at 90% 88%, rgba(89,111,220,.17), transparent 32%),
+              #17192f;
+}
+.login-card {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(4,6,25,.35);
+}
+.login-form-panel { background: #fff; }
+.login-form input { border: 1px solid #e5e7f0; background: #fafbff; }
+.login-form input:focus { border-color: #6557db; box-shadow: 0 0 0 4px rgba(101,87,219,.13); }
+.login-form button[type="submit"] {
+  border: 0; border-radius: 12px;
+  background: linear-gradient(135deg, #6f61e8, #5144c5);
+  box-shadow: 0 9px 20px rgba(91,76,204,.24);
+}
+.login-visual-panel { background: linear-gradient(145deg, #37346f, #22254b 62%, #1b2340); }
