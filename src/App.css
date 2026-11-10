@@ -1075,3 +1075,37 @@ button {
   box-shadow: 0 9px 20px rgba(91,76,204,.24);
 }
 .login-visual-panel { background: linear-gradient(145deg, #37346f, #22254b 62%, #1b2340); }
+
+
+/* Login theme correction: keep the original two-panel layout in both themes. */
+.login-page:not(.light) {
+  --panel: #1c293d;
+  --text: #f5f7ff;
+  --muted: #b7c6e4;
+  --border: #3a4a65;
+  background: radial-gradient(ellipse at 12% 10%, rgba(79,112,245,.16), transparent 36%), #101827;
+}
+.login-page:not(.light) .login-card,
+.login-page:not(.light) .login-form-panel { background: #1c293d; }
+.login-page:not(.light) .login-form-panel { color: #f5f7ff; }
+.login-page:not(.light) .login-form input {
+  background: #17243a;
+  color: #f5f7ff;
+  border-color: #3a4a65;
+}
+.login-page:not(.light) .login-form input::placeholder { color: #9eacc5; }
+.login-page:not(.light) .mode-button { color: #e8edff; }
+.login-page.light {
+  --panel: #ffffff;
+  --text: #17243a;
+  --muted: #61718a;
+  --border: #d8dfec;
+  background: radial-gradient(ellipse at 12% 10%, rgba(79,112,245,.12), transparent 36%), #eef2fa;
+}
+.login-page.light .login-card,
+.login-page.light .login-form-panel { background: #ffffff; }
+.login-page.light .login-form input { background: #f8faff; color: #17243a; }
+.login-page.light .login-form input::placeholder { color: #8491a8; }
+.login-page .login-card { border-radius: 20px; }
+.login-page .login-form input, .login-page .mode-button, .login-page .sign-in-button { transition: border-color .18s ease, box-shadow .18s ease, background .18s ease, transform .18s ease; }
+.login-page .sign-in-button:hover { transform: translateY(-1px); }

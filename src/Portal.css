@@ -2878,3 +2878,127 @@
 @media (prefers-reduced-motion: reduce) {
   .portal-app *, .portal-app *::before, .portal-app *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* Unified visual system for every Admin, Teacher and Student page. */
+.portal-app {
+  --bg: #f3f6fc;
+  --surface: #ffffff;
+  --surface-alt: #f7f9fe;
+  --border: #e1e7f1;
+  --text: #18243a;
+  --muted: #687790;
+  --primary: #4263df;
+  --primary-soft: #e9eeff;
+  --present: #21865a;
+  --present-soft: #e4f5ec;
+  --absent: #cf3f59;
+  --absent-soft: #fdebef;
+  --late: #b7791f;
+  --late-soft: #fff4dc;
+  background: var(--bg);
+  color: var(--text);
+}
+.portal-app.theme-dark {
+  --bg: #101827;
+  --surface: #1b293e;
+  --surface-alt: #22324a;
+  --border: #354760;
+  --text: #f2f5fc;
+  --muted: #aab8cf;
+  --primary: #91a6ff;
+  --primary-soft: #293b63;
+  --present: #61d6a0;
+  --present-soft: #183c35;
+  --absent: #ff91a2;
+  --absent-soft: #482b3b;
+  --late: #f5c66c;
+  --late-soft: #493b24;
+  background: var(--bg);
+  color: var(--text);
+}
+.portal-app .sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  box-shadow: 8px 0 28px rgba(28,45,78,.035);
+}
+.portal-app.theme-dark .sidebar { background: #152238; border-color: var(--border); box-shadow: 8px 0 28px rgba(0,0,0,.12); }
+.portal-app .profile { border-color: var(--border); }
+.portal-app .sidebar-role-label { color: var(--muted); }
+.portal-app .nav-item { color: var(--text); border-radius: 11px; }
+.portal-app .nav-item:hover { background: var(--surface-alt); color: var(--primary); }
+.portal-app .nav-item.active { background: var(--primary-soft); color: var(--primary); box-shadow: inset 3px 0 var(--primary); }
+.portal-app .main { background: var(--bg); }
+.portal-main-top { background: var(--surface); border-bottom: 1px solid var(--border); }
+.portal-page-title, .portal-app .page-title { color: var(--text); }
+.portal-app .page-sub, .portal-app .muted, .portal-app .helper-text { color: var(--muted); }
+.portal-app .panel,
+.portal-app .card,
+.portal-app .stat-card,
+.portal-app .stat,
+.portal-app .class-card,
+.portal-app .class-strip-card,
+.portal-app .admin-kpi-card,
+.portal-app .student-stat-card,
+.portal-app .content-card,
+.portal-app .timetable-slot,
+.portal-app .absence-letter-form-panel,
+.portal-app .dashboard-card {
+  color: var(--text);
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: 0 8px 26px rgba(24,43,78,.045);
+}
+.portal-app.theme-dark .panel,
+.portal-app.theme-dark .card,
+.portal-app.theme-dark .stat-card,
+.portal-app.theme-dark .stat,
+.portal-app.theme-dark .class-card,
+.portal-app.theme-dark .class-strip-card,
+.portal-app.theme-dark .admin-kpi-card,
+.portal-app.theme-dark .student-stat-card,
+.portal-app.theme-dark .content-card,
+.portal-app.theme-dark .timetable-slot,
+.portal-app.theme-dark .absence-letter-form-panel,
+.portal-app.theme-dark .dashboard-card { box-shadow: 0 8px 26px rgba(0,0,0,.14); }
+.portal-app .panel h1, .portal-app .panel h2, .portal-app .panel h3,
+.portal-app .card h1, .portal-app .card h2, .portal-app .card h3,
+.portal-app .stat strong, .portal-app .admin-kpi-card strong { color: var(--text); }
+.portal-app input:not([type="checkbox"]):not([type="radio"]),
+.portal-app select, .portal-app textarea, .portal-app .class-select {
+  color: var(--text); background: var(--surface); border-color: var(--border);
+}
+.portal-app input::placeholder, .portal-app textarea::placeholder { color: var(--muted); opacity: .85; }
+.portal-app input:focus, .portal-app select:focus, .portal-app textarea:focus {
+  border-color: var(--primary) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+.portal-app button { color: inherit; }
+.portal-app .btn-outline, .portal-app .text-action, .portal-app .refresh-button,
+.portal-app .mode-button, .portal-app .date-chip, .portal-app .portal-date-pill { border-color: var(--border); }
+.portal-app .date-chip, .portal-app .portal-date-pill { background: var(--primary-soft); color: var(--primary); }
+.portal-app .table-wrap { border: 1px solid var(--border); border-radius: 13px; overflow-x: auto; }
+.portal-app table { color: var(--text); }
+.portal-app thead th, .portal-app th { background: var(--surface-alt); color: var(--muted); border-color: var(--border); }
+.portal-app td { color: var(--text); border-color: var(--border); }
+.portal-app tbody tr:hover { background: var(--surface-alt); }
+.portal-app .attendance-total-strip, .portal-app .toolbar-controls,
+.portal-app .empty-state, .portal-app .empty-panel { background: var(--surface-alt); border-color: var(--border); color: var(--text); }
+.portal-app .modal, .portal-app .letter-viewer, .portal-app .face-enroll-modal,
+.portal-app [role="dialog"] { color: var(--text); background: var(--surface); border-color: var(--border); }
+.portal-app .modal input, .portal-app .modal select, .portal-app .modal textarea,
+.portal-app [role="dialog"] input, .portal-app [role="dialog"] select,
+.portal-app [role="dialog"] textarea { color: var(--text); background: var(--surface-alt); }
+.portal-app .calendar-day { color: var(--text); background: var(--surface); border-color: var(--border); }
+.portal-app .calendar-day-empty { background: transparent; }
+.portal-app .calendar-event-card { background: var(--surface-alt); border-color: var(--border); }
+.portal-app .calendar-weekdays span, .portal-app .calendar-empty-date { color: var(--muted); }
+.portal-app .nav-item, .portal-app .panel, .portal-app .card, .portal-app .stat,
+.portal-app .admin-kpi-card, .portal-app button { transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease, color .18s ease; }
+.portal-app :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+@media (max-width: 900px) {
+  .portal-app { grid-template-columns: 1fr; }
+  .portal-app .sidebar { position: relative; top: auto; height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portal-app *, .login-page * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
